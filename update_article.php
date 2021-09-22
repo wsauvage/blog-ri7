@@ -7,10 +7,10 @@ include_once 'entities/Article.php';
 
 $connection = (new DBClass())->getConnection();
 $articleInstance = new Article($connection);
-$success = $articleInstance->create($_POST['title'], $_POST['content'], $_POST['author'], new \DateTime(), $_POST['imageUrl'], $_POST['categoryId'], $_POST['keywords']);
+$success = $articleInstance->update($_POST['articleId'], $_POST['title'], $_POST['content'], $_POST['author'], new \DateTime(), $_POST['imageUrl'], $_POST['categoryId'], $_POST['keywords']);
 
 if ($success) {
-    $_SESSION['message'] = 'Article ajouté dans la base.';
+    $_SESSION['message'] = 'Modifications enregistrées dans la base.';
     $_SESSION['status'] = 'success';
 }
 else {

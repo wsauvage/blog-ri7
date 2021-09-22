@@ -1,5 +1,5 @@
-        </div>
-        </section>
+        </div> <!-- end container-->
+        </section><!-- end section-->
         <footer class="footer">
             <div class="content has-text-centered">
                 <p>
@@ -10,11 +10,10 @@
     </body>
 </html>
 
-
 <?php
 
 if ($_SESSION && array_key_exists('message',$_SESSION)) {
     unset($_SESSION['message']);
 }
-unset($_SESSION['message']);
+
 ?>

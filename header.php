@@ -5,10 +5,11 @@ session_start();
 include_once 'utils/DBClass.php';
 include_once 'entities/Article.php';
 include_once 'entities/Category.php';
+include_once 'entities/Keyword.php';
 
 $connection = (new DBClass())->getConnection();
 $categoryInstance = new Category($connection);
-$categories = $categoryInstance->selectAll();
+$categories = $categoryInstance->findAll();
 
 ?>
 
@@ -29,7 +30,6 @@ $categories = $categoryInstance->selectAll();
                     <a class="navbar-item" href="index.php">
                         <img src="https://ri7.fr/wp-content/uploads/2020/12/logo-200x100-bicolore.png" height="40">
                     </a>
-
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
@@ -47,9 +47,9 @@ $categories = $categoryInstance->selectAll();
                                 Catégories
                             </a>
                             <div class="navbar-dropdown">
-                                <?php foreach($categories as $key=>$c): ?>
+                                <?php foreach($categories as $c): ?>
                                     <a class="navbar-item">
-                                        <?= $c ?>
+                                        <?= $c['name'] ?>
                                     </a>
                                 <?php endforeach; ?>
                             </div>
@@ -75,12 +75,10 @@ $categories = $categoryInstance->selectAll();
             <div class="container">
                 <?php if ($_SESSION && array_key_exists('message',$_SESSION)): ?>
                 <article class="message is-success">
-                    <div class="message-header">
-                        <p>Info</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
                     <div class="message-body">
                         <?= $_SESSION['message'] ?>
                     </div>
                 </article>
                 <?php endif; ?>
+
+

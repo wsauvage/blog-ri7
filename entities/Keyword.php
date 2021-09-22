@@ -1,6 +1,6 @@
 <?php
 
-class Category {
+class Keyword {
 
     private $connection;
 
@@ -10,8 +10,8 @@ class Category {
 
     public function findAll() {
         $query =    'SELECT * '.
-                    'FROM category c '.
-                    'ORDER BY c.name ASC';
+                    'FROM keyword k '.
+                    'ORDER BY k.name ASC';
 
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
