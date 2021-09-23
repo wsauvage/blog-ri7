@@ -9,11 +9,3 @@
         </footer>
     </body>
 </html>
-
-<?php
-
-if ($_SESSION && array_key_exists('message',$_SESSION)) {
-    unset($_SESSION['message']);
-}
-
-?>

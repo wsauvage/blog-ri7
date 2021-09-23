@@ -1,4 +1,5 @@
 <?php
+namespace App\Model;
 
 class Keyword {
 
@@ -15,8 +16,7 @@ class Keyword {
 
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 }
-?>

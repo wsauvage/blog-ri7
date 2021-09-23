@@ -1,9 +1,11 @@
 <?php
+use App\Model\Keyword;
+
 $keywordInstance = new Keyword($connection);
 $keywords = $keywordInstance->findAll();
 ?>
 
-<form method="post" action="<?= isset($article) ? 'update_article.php' : 'create_article.php'?>">
+<form method="post" action="<?= isset($article) ? 'index.php?page=article-update' : 'index.php?page=article-create'?>">
     <div class="field" style="display:none">
         <div class="control">
             <input id="articleId" name="articleId" class="input" type="text" placeholder="ID" value="<?= isset($article) ? $article['id'] : '' ?>">

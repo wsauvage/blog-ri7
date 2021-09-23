@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Model;
+
 class Category {
 
     private $connection;
@@ -15,8 +17,8 @@ class Category {
 
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 }
-?>
+

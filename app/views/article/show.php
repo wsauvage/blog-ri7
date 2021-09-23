@@ -1,6 +1,5 @@
-<?php include_once 'header.php' ?>
-
 <?php
+use App\Model\Article;
 
 if (!isset($_GET['articleId'])) {
     exit("Veuillez spécifier un articleId");
@@ -56,7 +55,4 @@ $keywords = $articleInstance->findKeywords($articleId);
         <span>Retour</span>
     </a>
 </section>
-
-
-<?php include_once 'footer.php' ?>
 

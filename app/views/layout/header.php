@@ -1,19 +1,3 @@
-
-<?php
-session_start();
-
-include_once 'utils/DBClass.php';
-include_once 'entities/Article.php';
-include_once 'entities/Category.php';
-include_once 'entities/Keyword.php';
-
-$connection = (new DBClass())->getConnection();
-$categoryInstance = new Category($connection);
-$categories = $categoryInstance->findAll();
-
-?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -59,7 +43,7 @@ $categories = $categoryInstance->findAll();
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
-                                <a class="button is-success" href="new_article.php">
+                                <a class="button is-success" href="index.php?page=article-new"">
                                     <span class="icon">
                                         <i class="fas fa-plus"></i>
                                     </span>

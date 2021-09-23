@@ -1,6 +1,5 @@
-<?php include_once 'header.php' ?>
-
 <?php
+use App\Model\Article;
 
 if (!isset($_GET['articleId'])) {
     exit("Veuillez spécifier un articleId");
@@ -21,7 +20,6 @@ foreach ($selectedKeywords as $k) {
 
 ?>
 
-<?php include_once 'form_article.php' ?>
+<?php include 'app/views/article/form.php' ?>
 
-<?php include_once 'footer.php' ?>
 

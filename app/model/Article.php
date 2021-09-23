@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Model;
+
 class Article {
 
     private $connection;
@@ -40,7 +42,7 @@ class Article {
         $sql = self::getSelectSql($id);
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function search(?string $query = '') {
@@ -49,7 +51,7 @@ class Article {
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function findKeywords(int $articleId) : array {
@@ -64,7 +66,7 @@ class Article {
 
         $stmt = $this->connection->prepare($query);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function create(string $title, string $content, string $author, \DateTime $createdAt, string $imageUrl, int $categoryId, ?array $keywords) {
@@ -150,4 +152,4 @@ class Article {
 
 
 }
-?>
+
